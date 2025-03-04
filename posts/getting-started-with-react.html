@@ -1,0 +1,155 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>React入门指南 - ToddZhao</title>
+    <link rel="stylesheet" href="../stylesheets/styles.css">
+    <link rel="stylesheet" href="../stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  </head>
+  <body>
+    <div class="wrapper">
+      <nav>
+        <ul>
+          <li><a href="../index.html">首页</a></li>
+          <li><a href="../about.html">关于我</a></li>
+          <li><a href="../posts.html">文章</a></li>
+          <li><a href="../rss.xml">订阅</a></li>
+        </ul>
+      </nav>
+      <header>
+        <h1>ToddZhao.Blog</h1>
+        <p>Do it , do it right , do it right now .</p>
+
+        <div class="profile">
+          <img src="https://avatars.githubusercontent.com/ToddZhao" alt="ToddZhao" class="avatar">
+          <h2>Todd Zhao</h2>
+          <p>全栈开发工程师</p>
+          <div class="social-links">
+            <a href="https://github.com/ToddZhao" target="_blank">GitHub</a>
+            <a href="https://twitter.com/ToddZhao" target="_blank">Twitter</a>
+            <a href="https://linkedin.com/in/ToddZhao" target="_blank">LinkedIn</a>
+          </div>
+        </div>
+      </header>
+
+      <section>
+        <div class="post-header">
+          <h1>React入门指南</h1>
+          <div class="post-meta">
+            <span class="date">2023-12-01</span>
+            <span class="tags">React, 前端开发</span>
+          </div>
+        </div>
+        
+        <div class="post-content">
+          <h2>React简介</h2>
+          <p>React是由Facebook开发的JavaScript库，用于构建用户界面，特别是单页应用程序。它允许开发者创建大型的Web应用，这些应用可以在不重新加载页面的情况下改变数据。</p>
+          
+          <h2>为什么选择React？</h2>
+          <ul>
+            <li><strong>声明式编程</strong>：React使创建交互式UI变得轻松。为应用程序中的每个状态设计简单的视图，当数据变化时React会有效地更新和渲染正确的组件。</li>
+            <li><strong>组件化</strong>：构建管理自身状态的封装组件，然后组合它们以创建复杂的UI。</li>
+            <li><strong>一次学习，随处编写</strong>：无论你现在使用什么技术栈，你都可以将React作为开发新功能的工具，而无需重写现有代码。</li>
+          </ul>
+          
+          <h2>React核心概念</h2>
+          
+          <h3>1. 组件</h3>
+          <p>组件是React的核心概念，它们是自包含的、可重用的代码片段，返回要在页面上渲染的React元素。</p>
+          
+          <pre><code class="javascript">// 函数组件
+function Welcome(props) {
+  return &lt;h1&gt;Hello, {props.name}&lt;/h1&gt;;
+}
+
+// 类组件
+class Welcome extends React.Component {
+  render() {
+    return &lt;h1&gt;Hello, {this.props.name}&lt;/h1&gt;;
+  }
+}</code></pre>
+          
+          <h3>2. Props</h3>
+          <p>Props是从父组件传递到子组件的数据。它们是只读的，不应该被修改。</p>
+          
+          <pre><code class="javascript">function Welcome(props) {
+  return &lt;h1&gt;Hello, {props.name}&lt;/h1&gt;;
+}
+
+const element = &lt;Welcome name="Sara" /&gt;;</code></pre>
+          
+          <h3>3. State</h3>
+          <p>State是组件内部管理的数据，可以随时间变化。当state更新时，组件会重新渲染。</p>
+          
+          <pre><code class="javascript">class Clock extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {date: new Date()};
+  }
+
+  componentDidMount() {
+    this.timerID = setInterval(
+      () => this.tick(),
+      1000
+    );
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timerID);
+  }
+
+  tick() {
+    this.setState({
+      date: new Date()
+    });
+  }
+
+  render() {
+    return (
+      &lt;div&gt;
+        &lt;h1&gt;Hello, world!&lt;/h1&gt;
+        &lt;h2&gt;It is {this.state.date.toLocaleTimeString()}.&lt;/h2&gt;
+      &lt;/div&gt;
+    );
+  }
+}</code></pre>
+          
+          <h3>4. 生命周期</h3>
+          <p>React组件有多个生命周期方法，允许你在特定时间执行代码：</p>
+          <ul>
+            <li><strong>挂载</strong>：componentDidMount()</li>
+            <li><strong>更新</strong>：componentDidUpdate()</li>
+            <li><strong>卸载</strong>：componentWillUnmount()</li>
+          </ul>
+          
+          <h2>开始使用React</h2>
+          <p>要开始使用React，你可以使用Create React App工具：</p>
+          
+          <pre><code class="bash">npx create-react-app my-app
+cd my-app
+npm start</code></pre>
+          
+          <p>这将创建一个新的React应用程序，并启动开发服务器。</p>
+          
+          <h2>结论</h2>
+          <p>React是一个强大的JavaScript库，用于构建用户界面。通过学习其核心概念（组件、props、state和生命周期），你可以开始构建复杂的交互式Web应用程序。</p>
+          
+          <p>本文只是React的入门指南，还有很多高级概念需要学习，如Context、Hooks、Redux等。随着你对React的深入了解，你将能够构建更复杂、更高效的应用程序。</p>
+        </div>
+        
+        <div class="post-footer">
+          <div class="post-nav">
+            <a href="../posts.html" class="back-to-posts">← 返回文章列表</a>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="../javascripts/scale.fix.js"></script>
+  </body>
+</html>

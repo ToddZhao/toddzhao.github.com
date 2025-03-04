@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>ToddZhao的博客</title>
+    <link>https://toddzhao.github.io</link>
+    <description>Do it, do it right, do it right now.</description>
+    <language>zh-CN</language>
+    <lastBuildDate>Fri, 01 Dec 2023 00:00:00 GMT</lastBuildDate>
+    
+    <item>
+      <title>React入门指南</title>
+      <link>https://toddzhao.github.io/posts/getting-started-with-react.html</link>
+      <description>本文将介绍React的基础概念，包括组件、状态管理、生命周期等核心知识点，帮助你快速入门React开发...</description>
+      <pubDate>Fri, 01 Dec 2023 00:00:00 GMT</pubDate>
+      <guid>https://toddzhao.github.io/posts/getting-started-with-react.html</guid>
+    </item>
+    
+    <item>
+      <title>Docker最佳实践</title>
+      <link>https://toddzhao.github.io/posts/docker-best-practices.html</link>
+      <description>分享在实际项目中总结的Docker使用技巧和最佳实践，包括镜像优化、多阶段构建、安全性考虑等内容...</description>
+      <pubDate>Wed, 15 Nov 2023 00:00:00 GMT</pubDate>
+      <guid>https://toddzhao.github.io/posts/docker-best-practices.html</guid>
+    </item>
+    
+    <item>
+      <title>微服务架构设计</title>
+      <link>https://toddzhao.github.io/posts/microservices-architecture.html</link>
+      <description>探讨微服务架构的优势与挑战，分析实际案例，并提供实用的设计建议和解决方案...</description>
+      <pubDate>Wed, 01 Nov 2023 00:00:00 GMT</pubDate>
+      <guid>https://toddzhao.github.io/posts/microservices-architecture.html</guid>
+    </item>
+  </channel>
+</rss>
