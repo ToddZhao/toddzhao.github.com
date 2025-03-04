@@ -35,33 +35,64 @@
       <section>
         <h2>文章列表</h2>
         
+        <div class="categories">
+          <h3>专栏分类</h3>
+          <ul>
+            <li><a href="#frontend">前端开发</a></li>
+            <li><a href="#java">Java 从入门到精「放」通「弃」</a></li>
+            <li><a href="#devops">DevOps</a></li>
+            <li><a href="#architecture">架构设计</a></li>
+          </ul>
+        </div>
+        
         <div class="post-list">
-          <article class="post-item">
-            <h3><a href="posts/getting-started-with-react.html">React入门指南</a></h3>
-            <div class="post-meta">
-              <span class="date">2023-12-01</span>
-              <span class="tags">React, 前端开发</span>
-            </div>
-            <p class="post-excerpt">本文将介绍React的基础概念，包括组件、状态管理、生命周期等核心知识点，帮助你快速入门React开发...</p>
-          </article>
-
-          <article class="post-item">
-            <h3><a href="posts/docker-best-practices.html">Docker最佳实践</a></h3>
-            <div class="post-meta">
-              <span class="date">2023-11-15</span>
-              <span class="tags">Docker, DevOps</span>
-            </div>
-            <p class="post-excerpt">分享在实际项目中总结的Docker使用技巧和最佳实践，包括镜像优化、多阶段构建、安全性考虑等内容...</p>
-          </article>
-
-          <article class="post-item">
-            <h3><a href="posts/microservices-architecture.html">微服务架构设计</a></h3>
-            <div class="post-meta">
-              <span class="date">2023-11-01</span>
-              <span class="tags">微服务, 架构设计</span>
-            </div>
-            <p class="post-excerpt">探讨微服务架构的优势与挑战，分析实际案例，并提供实用的设计建议和解决方案...</p>
-          </article>
+          <div id="frontend" class="category-section">
+            <h3 class="category-title">前端开发</h3>
+            <article class="post-item">
+              <h3><a href="posts/frontend/getting-started-with-react.html">React入门指南</a></h3>
+              <div class="post-meta">
+                <span class="date">2023-12-01</span>
+                <span class="tags">React, 前端开发</span>
+              </div>
+              <p class="post-excerpt">本文将介绍React的基础概念，包括组件、状态管理、生命周期等核心知识点，帮助你快速入门React开发...</p>
+            </article>
+          </div>
+          
+          <div id="devops" class="category-section">
+            <h3 class="category-title">DevOps</h3>
+            <article class="post-item">
+              <h3><a href="posts/devops/docker-best-practices.html">Docker最佳实践</a></h3>
+              <div class="post-meta">
+                <span class="date">2023-11-15</span>
+                <span class="tags">Docker, DevOps</span>
+              </div>
+              <p class="post-excerpt">分享在实际项目中总结的Docker使用技巧和最佳实践，包括镜像优化、多阶段构建、安全性考虑等内容...</p>
+            </article>
+          </div>
+          
+          <div id="architecture" class="category-section">
+            <h3 class="category-title">架构设计</h3>
+            <article class="post-item">
+              <h3><a href="posts/architecture/microservices-architecture.html">微服务架构设计</a></h3>
+              <div class="post-meta">
+                <span class="date">2023-11-01</span>
+                <span class="tags">微服务, 架构设计</span>
+              </div>
+              <p class="post-excerpt">探讨微服务架构的优势与挑战，分析实际案例，并提供实用的设计建议和解决方案...</p>
+            </article>
+          </div>
+          
+          <div id="java" class="category-section">
+            <h3 class="category-title">Java 从入门到精「放」通「弃」</h3>
+            <article class="post-item">
+              <h3><a href="posts/java/java-basics.html">Java基础知识全解析</a></h3>
+              <div class="post-meta">
+                <span class="date">2023-10-15</span>
+                <span class="tags">Java, 编程基础</span>
+              </div>
+              <p class="post-excerpt">从零开始学习Java编程，包括基本语法、面向对象编程概念、常用API以及实用编程技巧...</p>
+            </article>
+          </div>
         </div>
 
         <div class="pagination">
