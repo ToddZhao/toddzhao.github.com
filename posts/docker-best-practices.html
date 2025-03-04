@@ -43,143 +43,7 @@
           </div>
         </div>
         
-        <div class="post-content">
-          <h2>Docker简介</h2>
-          <p>Docker是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中，然后发布到任何流行的Linux或Windows机器上。Docker容器在任何环境中都能够以相同的方式运行，这极大地简化了应用的部署和扩展过程。</p>
-          
-          <h2>为什么使用Docker？</h2>
-          <ul>
-            <li><strong>一致的运行环境</strong>：Docker确保应用在开发、测试和生产环境中以完全相同的方式运行。</li>
-            <li><strong>快速部署</strong>：容器可以在几秒钟内启动，大大加快了应用的部署速度。</li>
-            <li><strong>隔离性</strong>：Docker容器之间相互隔离，不会互相影响，提高了系统的安全性和稳定性。</li>
-            <li><strong>资源效率</strong>：与传统虚拟机相比，Docker容器占用更少的系统资源。</li>
-          </ul>
-          
-          <h2>Docker最佳实践</h2>
-          
-          <h3>1. 使用官方镜像作为基础</h3>
-          <p>尽可能使用官方提供的基础镜像，这些镜像通常经过了安全审查和优化：</p>
-          
-          <pre><code class="dockerfile">FROM node:14-alpine
-
-WORKDIR /app
-
-COPY package*.json ./
-
-RUN npm install
-
-COPY . .
-
-CMD ["npm", "start"]
-</code></pre>
-          
-          <h3>2. 多阶段构建</h3>
-          <p>使用多阶段构建可以显著减小最终镜像的大小：</p>
-          
-          <pre><code class="dockerfile"># 构建阶段
-FROM node:14 AS build
-
-WORKDIR /app
-
-COPY package*.json ./
-
-RUN npm install
-
-COPY . .
-
-RUN npm run build
-
-# 生产阶段
-FROM nginx:alpine
-
-COPY --from=build /app/build /usr/share/nginx/html
-
-EXPOSE 80
-
-CMD ["nginx", "-g", "daemon off;"]
-</code></pre>
-          
-          <h3>3. 优化镜像层</h3>
-          <p>合理组织Dockerfile指令，减少镜像层数量：</p>
-          <ul>
-            <li>将频繁变化的内容放在Dockerfile的后面</li>
-            <li>合并RUN指令，减少层数</li>
-            <li>使用.dockerignore文件排除不需要的文件</li>
-          </ul>
-          
-          <pre><code class="dockerfile"># 不推荐
-RUN apt-get update
-RUN apt-get install -y package1
-RUN apt-get install -y package2
-
-# 推荐
-RUN apt-get update && \
-    apt-get install -y package1 package2 && \
-    rm -rf /var/lib/apt/lists/*
-</code></pre>
-          
-          <h3>4. 安全最佳实践</h3>
-          <p>确保Docker容器的安全性：</p>
-          <ul>
-            <li>使用非root用户运行容器</li>
-            <li>定期更新基础镜像</li>
-            <li>扫描镜像中的安全漏洞</li>
-            <li>限制容器的资源使用</li>
-          </ul>
-          
-          <pre><code class="dockerfile"># 创建非root用户
-RUN addgroup -S appgroup && adduser -S appuser -G appgroup
-
-# 切换到该用户
-USER appuser
-
-# 运行应用
-CMD ["node", "app.js"]
-</code></pre>
-          
-          <h3>5. 使用Docker Compose管理多容器应用</h3>
-          <p>对于由多个容器组成的应用，使用Docker Compose简化管理：</p>
-          
-          <pre><code class="yaml">version: '3'
-
-services:
-  web:
-    build: ./web
-    ports:
-      - "80:80"
-    depends_on:
-      - api
-  
-  api:
-    build: ./api
-    ports:
-      - "3000:3000"
-    environment:
-      - DB_HOST=db
-    depends_on:
-      - db
-  
-  db:
-    image: postgres:13
-    volumes:
-      - db-data:/var/lib/postgresql/data
-    environment:
-      - POSTGRES_PASSWORD=secret
-
-volumes:
-  db-data:
-</code></pre>
-          
-          <h2>结论</h2>
-          <p>Docker已经成为现代软件开发和部署的重要工具。通过遵循这些最佳实践，你可以充分利用Docker的优势，构建更高效、更安全、更易于维护的容器化应用。</p>
-          
-          <p>随着微服务架构的普及，掌握Docker技术变得越来越重要。希望本文介绍的最佳实践能够帮助你在实际项目中更好地使用Docker。</p>
-        </div>
-        
-        <div class="post-footer">
-          <div class="post-nav">
-            <a href="../posts.html" class="back-to-posts">← 返回文章列表</a>
-          </div>
+        <div class="post-content" id="post-content">
         </div>
       </section>
 
@@ -188,5 +52,11 @@ volumes:
       </footer>
     </div>
     <script src="../javascripts/scale.fix.js"></script>
+    <script src="../javascripts/markdown-loader.js"></script>
+    <script>
+      // 获取当前文章的Markdown文件路径
+      const mdPath = window.location.pathname.replace('.html', '.md').replace('/posts/', '/posts/devops/');
+      displayMarkdownContent(mdPath, 'post-content');
+    </script>
   </body>
 </html>
