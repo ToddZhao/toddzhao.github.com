@@ -6,6 +6,7 @@
     <title>Java基础知识全解析 - ToddZhao</title>
     <link rel="stylesheet" href="../stylesheets/styles.css">
     <link rel="stylesheet" href="../stylesheets/pygment_trac.css">
+    <link rel="stylesheet" href="../stylesheets/pagination.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   </head>
   <body>
@@ -43,14 +44,39 @@
           </div>
         </div>
         
+        <!-- 文章目录 -->
+        <div class="table-of-contents">
+          <h3>目录</h3>
+          <ul>
+            <li class="toc-h2"><a href="#introduction">引言</a></li>
+            <li class="toc-h2"><a href="#java-intro">Java简介</a>
+              <ul>
+                <li class="toc-h3"><a href="#java-features">Java的主要特点</a></li>
+              </ul>
+            </li>
+            <li class="toc-h2"><a href="#dev-environment">开发环境搭建</a>
+              <ul>
+                <li class="toc-h3"><a href="#install-jdk">安装JDK</a></li>
+                <li class="toc-h3"><a href="#choose-ide">选择IDE</a></li>
+              </ul>
+            </li>
+            <li class="toc-h2"><a href="#java-basics">Java基础语法</a>
+              <ul>
+                <li class="toc-h3"><a href="#first-program">第一个Java程序</a></li>
+              </ul>
+            </li>
+            <li class="toc-h2"><a href="#conclusion">结语</a></li>
+          </ul>
+        </div>
+
         <div class="post-content">
-          <h2>引言</h2>
+          <h2 id="introduction">引言</h2>
           <p>在当今的软件开发领域，Java依然是最流行的编程语言之一。无论是企业级应用、Android移动开发，还是大数据处理，Java都有着广泛的应用。本文将带领读者从零开始，系统地学习Java编程的基础知识。</p>
           
-          <h2>Java简介</h2>
+          <h2 id="java-intro">Java简介</h2>
           <p>Java是由Sun Microsystems（现已被Oracle收购）于1995年发布的一种面向对象的编程语言。Java的设计理念是「一次编写，到处运行」（Write Once, Run Anywhere），这使得Java程序可以在任何支持Java的平台上运行，而无需重新编译。</p>
           
-          <h3>Java的主要特点</h3>
+          <h3 id="java-features">Java的主要特点</h3>
           <ul>
             <li><strong>面向对象</strong>：Java是一种纯面向对象的语言，一切皆对象。</li>
             <li><strong>平台无关性</strong>：Java程序可以在任何装有Java虚拟机（JVM）的设备上运行。</li>
@@ -60,10 +86,10 @@
             <li><strong>健壮性</strong>：Java的强类型检查和异常处理机制使程序更加健壮。</li>
           </ul>
           
-          <h2>开发环境搭建</h2>
+          <h2 id="dev-environment">开发环境搭建</h2>
           <p>在开始学习Java编程之前，我们需要先搭建Java开发环境。</p>
           
-          <h3>安装JDK</h3>
+          <h3 id="install-jdk">安装JDK</h3>
           <p>JDK（Java Development Kit）是Java开发的核心工具包，包含了Java运行环境（JRE）和开发工具。</p>
           <ol>
             <li>访问Oracle官网下载最新版本的JDK。</li>
@@ -77,7 +103,7 @@
             </li>
           </ol>
           
-          <h3>选择IDE</h3>
+          <h3 id="choose-ide">选择IDE</h3>
           <p>IDE（集成开发环境）可以大大提高开发效率。常用的Java IDE有：</p>
           <ul>
             <li><strong>IntelliJ IDEA</strong>：功能强大，被广泛认为是最好的Java IDE。</li>
@@ -86,8 +112,8 @@
             <li><strong>Visual Studio Code</strong>：轻量级编辑器，通过插件支持Java开发。</li>
           </ul>
           
-          <h2>Java基础语法</h2>
-          <h3>第一个Java程序</h3>
+          <h2 id="java-basics">Java基础语法</h2>
+          <h3 id="first-program">第一个Java程序</h3>
           <pre><code class="language-java">public class HelloWorld {
     public static void main(String[] args) {
         System.out.println("Hello, World!");
@@ -179,7 +205,7 @@ Animal animal2 = new Cat();
 animal1.makeSound();  // 输出：Dog barks
 animal2.makeSound();  // 输出：Cat meows</code></pre>
           
-          <h2>结语</h2>
+          <h2 id="conclusion">结语</h2>
           <p>本文介绍了Java编程的基础知识，包括语法、面向对象编程、常用API等。Java是一门功能强大且应用广泛的语言，掌握这些基础知识将为你的Java编程之旅打下坚实的基础。随着经验的积累，你可以进一步学习更高级的主题，如Java EE、Spring框架、Android开发等。</p>
           
           <p>记住，编程是一项实践性很强的技能，多写代码、多实践是提高的关键。祝你在Java编程的道路上取得成功！</p>
