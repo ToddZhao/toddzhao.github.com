@@ -69,35 +69,16 @@
           </ul>
         </div>
 
-        <div class="post-content">
-          <h2 id="introduction">引言</h2>
-          <p>在当今的软件开发领域，Java依然是最流行的编程语言之一。无论是企业级应用、Android移动开发，还是大数据处理，Java都有着广泛的应用。本文将带领读者从零开始，系统地学习Java编程的基础知识。</p>
-          
-          <h2 id="java-intro">Java简介</h2>
-          <p>Java是由Sun Microsystems（现已被Oracle收购）于1995年发布的一种面向对象的编程语言。Java的设计理念是「一次编写，到处运行」（Write Once, Run Anywhere），这使得Java程序可以在任何支持Java的平台上运行，而无需重新编译。</p>
-          
-          <h3 id="java-features">Java的主要特点</h3>
-          <ul>
-            <li><strong>面向对象</strong>：Java是一种纯面向对象的语言，一切皆对象。</li>
-            <li><strong>平台无关性</strong>：Java程序可以在任何装有Java虚拟机（JVM）的设备上运行。</li>
-            <li><strong>简单性</strong>：Java语法简洁，易于学习。</li>
-            <li><strong>安全性</strong>：Java提供了多层次的安全机制。</li>
-            <li><strong>多线程</strong>：Java内置了对多线程编程的支持。</li>
-            <li><strong>健壮性</strong>：Java的强类型检查和异常处理机制使程序更加健壮。</li>
-          </ul>
-          
-          <h2 id="dev-environment">开发环境搭建</h2>
-          <p>在开始学习Java编程之前，我们需要先搭建Java开发环境。</p>
-          
-          <h3 id="install-jdk">安装JDK</h3>
-          <p>JDK（Java Development Kit）是Java开发的核心工具包，包含了Java运行环境（JRE）和开发工具。</p>
-          <ol>
-            <li>访问Oracle官网下载最新版本的JDK。</li>
-            <li>根据操作系统选择相应的安装包。</li>
-            <li>按照安装向导完成安装。</li>
-            <li>配置环境变量：
-              <ul>
-                <li>JAVA_HOME：指向JDK安装目录</li>
+        <div class="post-content" id="post-content">
+          <!-- 文章内容将通过JavaScript动态加载 -->
+        </div>
+        
+        <script>
+          // 获取当前文章的Markdown文件路径
+          const mdPath = '../posts/java/java-basics.md';
+          // 加载并渲染Markdown内容
+          displayMarkdownContent(mdPath, 'post-content');
+        </script>
                 <li>PATH：添加%JAVA_HOME%/bin（Windows）或$JAVA_HOME/bin（Unix/Linux）</li>
               </ul>
             </li>
@@ -217,5 +198,6 @@ animal2.makeSound();  // 输出：Cat meows</code></pre>
       </footer>
     </div>
     <script src="../javascripts/scale.fix.js"></script>
+    <script src="../javascripts/toc.js"></script>
   </body>
 </html>

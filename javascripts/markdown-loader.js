@@ -14,14 +14,48 @@ async function loadMarkdownContent(filePath) {
 }
 
 function renderMarkdown(markdownContent) {
-  // 这里我们需要一个Markdown解析库，比如marked.js
-  // 为了简单起见，这里只做一个基本的转换
-  const htmlContent = markdownContent
-    .replace(/^# (.+)$/gm, '<h1>$1</h1>')
-    .replace(/^## (.+)$/gm, '<h2>$1</h2>')
-    .replace(/^### (.+)$/gm, '<h3>$1</h3>')
-    .replace(/\n\n/g, '</p><p>')
-    .replace(/^(.+)$/gm, '<p>$1</p>');
+  // 为了更好地支持Markdown语法，我们实现一个更完善的解析器
+  let htmlContent = markdownContent;
+  
+  // 处理代码块
+  htmlContent = htmlContent.replace(/```([\s\S]*?)```/g, function(match, code) {
+    const lines = code.trim().split('\n');
+    let language = '';
+    if (lines[0] && !lines[0].startsWith('    ')) {
+      language = lines[0];
+      lines.shift();
+    }
+    return `<pre><code class="language-${language}">${lines.join('\n')}</code></pre>`;
+  });
+  
+  // 处理标题并添加ID
+  htmlContent = htmlContent.replace(/^(#{1,6})\s+(.+)$/gm, function(match, hashes, title) {
+    const level = hashes.length;
+    const id = title.toLowerCase().replace(/\s+/g, '-').replace(/[^\w\-]/g, '');
+    return `<h${level} id="${id}">${title}</h${level}>`;
+  });
+  
+  // 处理粗体和斜体
+  htmlContent = htmlContent.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+  htmlContent = htmlContent.replace(/\*([^*]+)\*/g, '<em>$1</em>');
+  
+  // 处理链接
+  htmlContent = htmlContent.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
+  
+  // 处理列表
+  htmlContent = htmlContent.replace(/^\s*-\s+(.+)$/gm, '<li>$1</li>');
+  htmlContent = htmlContent.replace(/(<li>.+<\/li>\n)+/g, '<ul>$&</ul>');
+  htmlContent = htmlContent.replace(/^\s*(\d+)\.\s+(.+)$/gm, '<li>$2</li>');
+  htmlContent = htmlContent.replace(/(<li>.+<\/li>\n)+/g, '<ol>$&</ol>');
+  
+  // 处理段落
+  htmlContent = htmlContent.replace(/^([^<].+)$/gm, '<p>$1</p>');
+  
+  // 清理多余的标签
+  htmlContent = htmlContent.replace(/<p><\/p>/g, '');
+  htmlContent = htmlContent.replace(/<p><(h|ul|ol|pre)/g, '<$1');
+  htmlContent = htmlContent.replace(/<\/(h|ul|ol|pre)><\/p>/g, '</$1>');
+  
   return htmlContent;
 }
 
