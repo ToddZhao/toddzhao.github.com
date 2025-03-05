@@ -44,7 +44,14 @@
           </div>
         </div>
         
+        <!-- 文章目录 -->
+        <div class="table-of-contents">
+          <h3>目录</h3>
+          <!-- 目录内容将由toc.js自动生成 -->
+        </div>
+        
         <div class="post-content" id="post-content">
+          <!-- 文章内容将通过JavaScript动态加载 -->
         </div>
       </section>
 
@@ -55,6 +62,7 @@
     <script src="../javascripts/scale.fix.js"></script>
     <script src="../javascripts/markdown-loader.js"></script>
     <script src="../javascripts/sidebar-nav.js"></script>
+    <script src="../javascripts/toc.js"></script>
     <script>
       // 获取当前文章的Markdown文件路径
       const mdPath = window.location.pathname.replace('.html', '.md').replace('/posts/', '/posts/frontend/');
